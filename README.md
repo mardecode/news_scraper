@@ -24,7 +24,7 @@ pip3 install yaml
 conda create --name news_scraper beautifulsoup4 request yaml
 ```
 
-## Ejecución
+## Execution
 
 With this command the news of the newspaper El Universal specified in the  📂 file `config.yaml` will be extracted.
 
