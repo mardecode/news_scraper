@@ -9,7 +9,7 @@ news_sites:
     url: https://elpais.com
     queries:
       homepage_article_links : 'header h2.c_t a'
-      article_title: ''
-      article_body: ''
+      article_title: '.a_e_txt h1.a_t'
+      article_body: '.a_c'
 
     
