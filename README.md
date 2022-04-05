@@ -1,5 +1,5 @@
 # News scraper
-##### Versión en español [aquí](https://github.com/margarcuae/news-scraper/blob/main/README(es).md)
+##### Versión en español [aquí](https://github.com/margarcuae/news_scraper/blob/main/README(es).md)
 
 This  scraper  extracts news from different online/digital newspapers and stores them in CSV files. It is currently configured to extract news from the newspapers [El universal](http://www.eluniversal.com.mx) and [El País](https://elpais.com). But it works for others too; just add the variables in the `config.yaml` file. 
 
