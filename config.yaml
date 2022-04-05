@@ -3,7 +3,7 @@ news_sites:
     url: http://www.eluniversal.com.mx
     queries:
       homepage_article_links : '.bsg-Macrogaleria_Titulo a, .titulo a'
-      article_title: '.Encabezado-Articulo h1'
+      article_title: '.Encabezado-Articulo h1, .ceh-Opinion_Titulo'
       article_body: '.field-name-body'
   elpais:
     url: https://elpais.com
