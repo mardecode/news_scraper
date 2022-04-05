@@ -11,7 +11,6 @@ class NewsPage:
 
     self._visit(url)
 
-
   def _select(self, query_string):
     return self._html.select(query_string)
 
