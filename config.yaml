@@ -3,9 +3,13 @@ news_sites:
     url: http://www.eluniversal.com.mx
     queries:
       homepage_article_links : '.bsg-Macrogaleria_Titulo a, .titulo a'
+      article_title: '.Encabezado-Articulo h1'
+      article_body: '.field-name-body'
   elpais:
     url: https://elpais.com
     queries:
       homepage_article_links : 'header h2.c_t a'
+      article_title: ''
+      article_body: ''
 
     
