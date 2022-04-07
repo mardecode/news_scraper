@@ -6,8 +6,9 @@ from common import config
 class NewsPage:
   def __init__(self, news_site_uid, url):
     self._config = config()['news_sites'][news_site_uid]
-    self.queries = self._config['queries']
+    self._queries = self._config['queries']
     self._html = None
+    self.url = url
 
     self._visit(url)
 
@@ -29,7 +30,7 @@ class HomePage(NewsPage):
   @property
   def article_links(self):
     link_list = []
-    for link in self._select(self.queries['homepage_article_links']):
+    for link in self._select(self._queries['homepage_article_links']):
       if link and link.has_attr('href'):
         link_list.append(link['href'])
     
@@ -41,10 +42,11 @@ class ArticlePage(NewsPage):
 
   @property
   def body(self):
-    result = self._select(self.queries['article_body'])
+    result = self._select(self._queries['article_body'])
     return result[0].text if len(result) else ''
   
   @property
   def title(self):
-    result = self._select(self.queries['article_title'])
+    result = self._select(self._queries['article_title'])
     return result[0].text if len(result) else ''
+  
