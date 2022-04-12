@@ -18,12 +18,12 @@ Puedes instalarlos así:
 
 ```
 pip3 install bs4
-pip3 install request
+pip3 install requests
 pip3 install yaml
 ```
 * Con conda:
 ```
-conda create --name news_scraper beautifulsoup4 request yaml
+conda create --name scraper_news pandas requests beautifulsoup4 yaml
 ```
 
 ## Ejecución
