@@ -7,8 +7,8 @@ logging.basicConfig(level=logging.INFO)
 import nltk
 from nltk.corpus import stopwords
 
-# nltk.download('punkt')
-# nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('stopwords')
 
 logger = logging.getLogger(__name__)
 

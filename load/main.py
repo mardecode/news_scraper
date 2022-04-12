@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 def main(filename):
     Base.metadata.create_all(engine)
     session = Session()
-    articles = pd.read_csv(filename)
+    articles = pd.read_csv(f'{filename}.csv')
     for index, row in articles.iterrows():
         logger.info(f'Loading article uid {row["uid"]} into DB')
         article = Article(row['uid'], row['body'], row['host'], row['newspaper_uid'],

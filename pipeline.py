@@ -11,8 +11,8 @@ news_sites_uids = ['eluniversal', 'elpais']
 
 def main():
     _extract()
-    # _transform()
-    # _load()
+    _transform()
+    _load()
 
 
 def _extract():
@@ -37,9 +37,9 @@ def _transform():
 def _load():
     logger.info('Starting load process')
     for news_sites_uid in news_sites_uids:
-        clean_data_filename = 'clean_{}'.format(news_sites_uid)
+        clean_data_filename = f'{news_sites_uid}.csv'
         subprocess.run(
-            ['python', 'main.py', clean_data_filename], cwd='./load')
+            ['python', 'main.py', news_sites_uid], cwd='./load')
         subprocess.run(['rm', clean_data_filename], cwd='./load')
 
 

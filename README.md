@@ -1,8 +1,12 @@
 # News scraper
 ##### Versión en español [aquí](https://github.com/margarcuae/news_scraper/blob/main/README(es).md)
 
-This  scraper  extracts news from different online/digital newspapers and stores them in CSV files. It is currently configured to extract news from the newspapers [El universal](http://www.eluniversal.com.mx) and [El País](https://elpais.com). But it works for others too; just add the variables in the `config.yaml` file. 
 
+## Description
+
+This scraper extracts the 📰 news from different online/digital newspapers and cleans the data to save it in a database.
+
+It is currently configured to extract news from the newspapers [El universal](http://www.eluniversal.com.mx) and [El País](https://elpais.com). But it works for others too; just add the variables in the `config.yaml` file. 
 
 ## Requirements
 * Python 
@@ -10,44 +14,29 @@ This  scraper  extracts news from different online/digital newspapers and stores
   * beautiful soup 4
   * requests 
   * yaml
+  * pandas
+  * nltk 
+  * sqlalchemy
 
-You can install them like this:
-* With pip
+The specific requirements are in the `news_scraper.yml` file, which you can clone with conda
 
 ```
-pip3 install bs4
-pip3 install requests
-pip3 install yaml
-```
-* With conda:
-```
-conda create --name scraper_news pandas requests beautifulsoup4 yaml
+conda env create --file news_scraper.yml
+conda activate scraper_news
 ```
 
 ## Execution
 
-With this command the news of the newspaper El Universal specified in the  📂 file `config.yaml` will be extracted.
+The `pipeline.py` file will run the following task:
+* **Extraction:** Scraper of the news in a CSV file.
+* **Transformation:** Data cleaning.
+* **Load:** Storage of the data to an SQLite data dase.
 
+To execute: 
 ```
-python main.py eluniversal
+python pipeline.py
 ```
-config.yaml
-```
-news_sites:
-  eluniversal:
-    url: http://www.eluniversal.com.mx
-    queries:
-      homepage_article_links : '.bsg-Macrogaleria_Titulo a, .titulo a'
-      article_title: '.Encabezado-Articulo h1, .ceh-Opinion_Titulo'
-      article_body: '.field-name-body'
-  elpais:
-    url: https://elpais.com
-    queries:
-      homepage_article_links : 'header h2.c_t a'
-      article_title: '.a_e_txt h1.a_t'
-      article_body: '.a_c'
 
-```
 ## Settings
 
 More newspaper can be added in the `config.yaml` file, this file needs the following data
@@ -67,4 +56,27 @@ NAME:
     homepage_article_links: 'QUERY_1'
     article_tirle: 'QUERY_2
     article_body: 'QUERY3
+```
+config.yaml
+```
+news_sites:
+  eluniversal:
+    url: http://www.eluniversal.com.mx
+    queries:
+      homepage_article_links : '.bsg-Macrogaleria_Titulo a, .titulo a'
+      article_title: '.Encabezado-Articulo h1, .ceh-Opinion_Titulo'
+      article_body: '.field-name-body'
+  elpais:
+    url: https://elpais.com
+    queries:
+      homepage_article_links : 'header h2.c_t a'
+      article_title: '.a_e_txt h1.a_t'
+      article_body: '.a_c'
+```
+
+Additionally, you must add `NAME` in the pipeline.py file
+
+```
+news_sites_uids = ['eluniversal', 'elpais',NAME]
+
 ```
