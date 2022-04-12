@@ -30,7 +30,7 @@ conda activate scraper_news
 The `pipeline.py` file will run the following task:
 * **Extraction:** Scraper of the news in a CSV file.
 * **Transformation:** Data cleaning.
-* **Load:** Storage of the data to an SQLite data dase.
+* **Load:** Storage of the data to an SQLite database.
 
 To execute: 
 ```
